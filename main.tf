@@ -4,7 +4,6 @@ locals {
   list_local   = var.list_var
   map_local    = var.map_var
   object_local = var.object_var
-  user_id      = random_id.id.hex
 }
 
 resource "local_file" "file1" {
@@ -32,7 +31,12 @@ resource "local_file" "file5" {
   filename = "${path.module}/ment3/object"
 }
 
-resource "random_id" "id" {
+resource "random_id" "server" {
+  keepers = {
+    # Generate a new id each time we switch to a new AMI id
+    ami_id = var.ami_id
+  }
+
   byte_length = 8
 }
 

@@ -34,6 +34,6 @@ variable "object_var" {
   }
 }
 
-variable "user_id_static" {
-  type = string
+variable "ami_id" {
+    type = string
 }
