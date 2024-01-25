@@ -12,4 +12,3 @@ object_var = {
 }
 
 
-ami_id = "xyz"

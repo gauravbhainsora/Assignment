@@ -4,7 +4,7 @@ locals {
   list_local   = var.list_var
   map_local    = var.map_var
   object_local = var.object_var
-  user_id      = random_id.id
+  user_id      = random_id.id.hex
 }
 
 resource "local_file" "file1" {

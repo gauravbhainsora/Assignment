@@ -19,5 +19,5 @@ output "object_output" {
 }
 
 output "random_id_value" {
-  value = random_id.id.hex
+  value = local.user_id
 }
