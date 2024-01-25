@@ -18,6 +18,6 @@ output "object_output" {
   value = local.object_local
 }
 
-output "random_id" {
-    value = random_id.server.id
+output "random_id_value" {
+  value = random_id.id.hex
 }

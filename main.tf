@@ -4,38 +4,35 @@ locals {
   list_local   = var.list_var
   map_local    = var.map_var
   object_local = var.object_var
+  user_id      = random_id.id
 }
 
 resource "local_file" "file1" {
-  content = var.string_var
+  content = local.string_local
   filename = "${path.module}/ment1/string"
 }
 
 resource "local_file" "file2" {
-  content = var.number_var
+  content = local.number_local
   filename = "${path.module}/ment1/number"
 }
 
 resource "local_file" "file3" {
-  content = var.list_var[0]
+  content = local.list_local[0]
   filename = "${path.module}/ment2/list"
 }
 
 resource "local_file" "file4" {
-  content = var.map_var.key3
+  content = local.map_local.key3
   filename = "${path.module}/ment2/map"
 }
 
 resource "local_file" "file5" {
-  content = var.object_var.name
+  content = local.object_local.name
   filename = "${path.module}/ment3/object"
 }
 
-
-
-resource "random_id" "server" {
-  keepers = {
-    ami_id = var.ami_id
-  }
+resource "random_id" "id" {
   byte_length = 8
 }
+
